@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos, título y estilos -->
+    <style>
+        /* Estilos para el carrusel de imágenes */
+        .image-slider {
+            max-width: 300px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .image-slider img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+
+        /* Estilos adicionales (ajusta según tus necesidades) */
+        .image-slider-controls {
+            text-align: center;
+        }
+
+        .image-slider-controls button {
+            background-color: #0f0;
+            color: #000;
+            border: none;
+            padding: 5px 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Venta de Basura - EcoTransact</h1>
+    </div>
+    <!-- Barra de navegación -->
+    <div class="container">
+        <h2>Ofrece tu Basura a EcoTransact</h2>
+        <p>Estamos interesados en comprar materiales reciclables y productos reutilizables. Si tienes algo que desees vender y que sea amigable con el medio ambiente, por favor completa el formulario a continuación y nos pondremos en contacto contigo.</p>
+
+        <div class="form-container">
+            <!-- Carrusel de imágenes -->
+            <div class="image-slider">
+                <img src="imag/one.jfif" alt="Imagen 1">
+                <img src="imag/two.jfif" alt="Imagen 2">
+                <img src="imag/three.jfif" alt="Imagen 3">
+                <!-- Agrega más imágenes según sea necesario -->
+            </div>
+
+            <form action="procesar_venta.php" method="post">
+                <!-- Resto del formulario -->
+
+                <input type="submit" value="Enviar" class="submit-button">
+            </form>
+
+            <!-- Controles del carrusel de imágenes -->
+            <div class="image-slider-controls">
+                <button onclick="mostrarImagen(0)">1</button>
+                <button onclick="mostrarImagen(1)">2</button>
+                <button onclick="mostrarImagen(2)">3</button>
+                <!-- Agrega más botones según la cantidad de imágenes -->
+            </div>
+        </div>
+    </div>
+    <!-- Pie de página -->
+    
+    <script>
+        // Función para mostrar una imagen específica en el carrusel
+        function mostrarImagen(indice) {
+            var imagenes = document.querySelectorAll('.image-slider img');
+            for (var i = 0; i < imagenes.length; i++) {
+                imagenes[i].style.display = 'none';
+            }
+            imagenes[indice].style.display = 'block';
+        }
+    </script>
+</body>
+</html>

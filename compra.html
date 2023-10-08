@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta author="oscar chavez lopez" />
+  <title>Compra de basura</title>
+  <link rel="stylesheet" href="est/comp.css">
+
+  <script>
+    function validar() {
+      var nombre = document.forms["Formulario"]["nombre"].value;
+      var grupo = document.forms["Formulario"]["grupo"].value;
+      var turno = document.forms["Formulario"]["turno"].value;
+      var mensaje = document.forms["Formulario"]["mensaje"].value;
+      var aceptar = document.forms["Formulario"]["aceptar"].checked;
+      var seleccionado = document.forms["Formulario"]["opcion"].value;
+      var opcion = document.querySelector('input[name="opcion"]:checked');
+
+      if (nombre === "") {
+        alert("Por favor, ingrese su nombre.");
+        return false;
+      }
+
+      if (grupo === "") {
+        alert("Por favor, ingrese su grupo.");
+        return false;
+      }
+
+      if (turno === "") {
+        alert("Por favor, ingrese su turno.");
+        return false;
+      }
+
+      if (mensaje === "") {
+        alert("Por favor, ingrese un mensaje.");
+        return false;
+      }
+
+      if (!aceptar) {
+        alert("Por favor, acepte los términos y condiciones.");
+        return false;
+      }
+
+      if (seleccionado === "") {
+        alert("Por favor, seleccione una opción.");
+        return false;
+      }
+
+      if (!opcion) {
+        alert("Por favor, seleccione una opción.");
+        return false;
+      }
+
+      return true;
+    }
+
+    function cambiarFecha() {
+      var fechaActual = new Date();
+      var dias = parseInt(document.getElementById("dias").value);
+      fechaActual.setDate(fechaActual.getDate() + dias);
+      var fechaFormateada = fechaActual.toLocaleDateString();
+      document.getElementById("resultado").innerHTML = "Dia de la citas: " + fechaFormateada;
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Compra de basura</h1>
+
+  <form name="Formulario" onsubmit="return false">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre">
+
+    <br>
+
+    <label for="grupo">Grupo:</label>
+    <input type="text" id="grupo" name="grupo">
+
+    <br>
+
+    <label for="turno">Turno:</label>
+    <input type="text" id="turno" name="turno">
+
+    <br>
+
+    <label for="mensaje">Mensaje:</label>
+    <textarea id="mensaje" name="mensaje"></textarea>
+
+    <br>
+
+    <label for="opcion">Opción:</label>
+    <select id="opcion" name="opcion">
+      <option value="">Sexo</option>
+      <option value="opcion1">Hombre</option>
+      <option value="opcion2">Mujer</option>
+    </select>
+
+    <label>ciclo en curso:</label>
+    <input type="radio" id="opcion1" name="opcion" value="opcion1">
+    <label for="opcion1">1er año</label>
+
+    <input type="radio" id="opcion2" name="opcion" value="opcion2">
+    <label for="opcion2">2do año</label>
+
+    <input type="radio" id="opcion3" name="opcion" value="opcion3">
+    <label for="opcion3">3er año</label>
+
+    <br>
+
+    <label for="aceptar">
+      <input type="checkbox" id="aceptar" name="aceptar"> Aceptar los términos y condiciones
+    </label>
+
+    <br>
+
+    <h3>agregar dia de cita(opcional):</h3>
+
+    <label for="dias">día a partir del actual:</label>
+    <input type="number" id="dias" min="1" max="365" value="1">
+    <button onclick="cambiarFecha()">Agregar</button><br><br>
+
+    <div id="resultado"></div><br>
+
+    <button onclick="if (validar()) window.location.href = 'index.html';">Enviar</button><br>
+    <button class="botones" onclick="window.location.href='index.html'">Regresar</button>
+  </form>
+</body>
+
+</html>

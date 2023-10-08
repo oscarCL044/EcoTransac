@@ -1,0 +1,49 @@
+body {
+  background-color: #a3dbb1;
+  color: #fff;
+  font-family: 'Press Start 2P', cursive;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: #fafafa;
+}
+
+form {
+  background-color: #0a0a0a;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #fffefe;
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+  width: 98%;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+}
+
+.botones {
+  background-color: #346934;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.botones:hover {
+  background-color: #5a975d;
+}
+
+.botones:active {
+  background-color: #5a975d;
+}
